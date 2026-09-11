@@ -1,56 +1,82 @@
-# Leviathan SDK
+<div align="center">
 
-Official public SDK repository for supported Leviathan developer interfaces.
+<img width="100%" src="assets/readme-hero.svg" alt="Leviathan SDK">
 
-## Navigation
+<br>
 
-See the [public guide](GUIDE.md) for availability, usage boundaries, and topic-by-topic documentation. Read [SECURITY.md](SECURITY.md) before reporting a security issue.
+<img src="https://img.shields.io/badge/status-preparing-06131d?style=flat-square" alt="Preparing">
+<img src="https://img.shields.io/badge/license-Apache--2.0-06131d?style=flat-square" alt="Apache 2.0">
+<img src="https://img.shields.io/badge/interfaces-public%20only-06131d?style=flat-square" alt="Public interfaces only">
 
-- [Purpose and availability](GUIDE.md#purpose-and-availability)
-- [Supported integrations](GUIDE.md#supported-integrations)
-- [Installation](GUIDE.md#installation)
-- [Authentication](GUIDE.md#authentication)
-- [API clients](GUIDE.md#api-clients)
-- [Error handling](GUIDE.md#error-handling)
-- [Webhook handling](GUIDE.md#webhook-handling)
-- [Examples](GUIDE.md#examples)
-- [Compatibility and versioning](GUIDE.md#compatibility-and-versioning)
-- [License and security](GUIDE.md#license-and-security)
+**Developer interfaces for supported Leviathan APIs, integrations, tools and services.**
 
-## Purpose
+[Guide](GUIDE.md) · [API Docs](https://github.com/Lapinite/Leviathan-API-Docs) · [Examples](https://github.com/Lapinite/Leviathan-Examples) · [Integrations](https://github.com/Lapinite/Leviathan-Integrations) · [Security](SECURITY.md)
 
-The SDK is intended to make supported Leviathan APIs and integrations easier to use from applications, plugins, tools, and services.
+</div>
 
-As the platform develops, SDK work may include:
+## SDK direction
 
-- Typed API clients
-- Authentication helpers for supported public flows
-- Request and response models
-- Error handling
-- Pagination helpers
-- Webhook verification helpers
-- Version and compatibility utilities
-- Integration-focused developer tooling
+The Leviathan SDK is intended to make supported public Leviathan interfaces easier to use from applications, plugins, tools, services and integration projects.
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top"><strong>Client Layer</strong><br><sub>Typed API clients · request/response models · pagination · errors</sub></td>
+<td width="33%" valign="top"><strong>Integration Layer</strong><br><sub>Authentication helpers · webhooks · compatibility utilities · integration helpers</sub></td>
+<td width="33%" valign="top"><strong>Developer Experience</strong><br><sub>Examples · predictable versioning · safe defaults · documentation</sub></td>
+</tr>
+</table>
 
 ## Status
 
-The SDK is being prepared. This repository currently contains documentation and licensing, with no distributable SDK implementation or verified installation command.
+The SDK is being prepared. This repository currently contains documentation and licensing, with no distributable SDK implementation or verified installation command yet.
 
-## Security
+Planned SDK work may include:
 
-The SDK must not embed production credentials, client secrets, private keys, signing material, private endpoints, database credentials, or personal information.
+- typed API clients
+- authentication helpers for supported public flows
+- request and response models
+- error handling
+- pagination helpers
+- webhook verification helpers
+- version and compatibility utilities
+- integration-focused developer tooling
 
-Applications using the SDK are responsible for protecting their own secrets and following the authentication requirements of the services they use.
+Planned capabilities are not production promises and may change before implementation is published.
 
-## Documentation and examples
+## Intended usage model
 
-See:
+```text
+Application / Plugin / Tool
+          ↓
+     Leviathan SDK
+          ↓
+ Supported Public API / Webhook / Integration
+          ↓
+   Explicit Public Contract
+```
 
-- [Leviathan API Docs](https://github.com/Lapinite/Leviathan-API-Docs)
-- [Leviathan Examples](https://github.com/Lapinite/Leviathan-Examples)
-- [Leviathan Integrations](https://github.com/Lapinite/Leviathan-Integrations)
-- [Leviathan Docs](https://github.com/Lapinite/Leviathan-Docs)
+The SDK should only expose interfaces intentionally supported for public use. Private platform internals and proprietary implementation details are outside its scope.
+
+## Security boundaries
+
+The SDK must not embed production credentials, client secrets, access tokens, refresh tokens, private keys, signing material, private endpoints, database credentials, personal information, or administrative secrets.
+
+Applications using the SDK are responsible for protecting their own credentials and following the security and authentication requirements of the services they use.
+
+## Compatibility and versioning
+
+Compatibility information will be documented as implementations become available. Public releases should identify supported API versions, breaking changes, migration requirements, and platform assumptions clearly.
+
+## Developer resources
+
+| Resource | Purpose |
+| --- | --- |
+| [Public Guide](GUIDE.md) | SDK scope, availability and supported concepts |
+| [API Docs](https://github.com/Lapinite/Leviathan-API-Docs) | Public API contracts |
+| [Examples](https://github.com/Lapinite/Leviathan-Examples) | Small implementation patterns |
+| [Integrations](https://github.com/Lapinite/Leviathan-Integrations) | Supported platform integration patterns |
+| [Leviathan Docs](https://github.com/Lapinite/Leviathan-Docs) | Ecosystem-level documentation |
 
 ## License
 
-This repository currently uses the Apache License 2.0. See [LICENSE](LICENSE).
+This repository uses the Apache License 2.0. See [LICENSE](LICENSE).
