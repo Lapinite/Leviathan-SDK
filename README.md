@@ -14,17 +14,13 @@
 
 </div>
 
-## SDK direction
+## SDK architecture
 
-The Leviathan SDK is intended to make supported public Leviathan interfaces easier to use from applications, plugins, tools, services and integration projects.
+<p align="center">
+  <img width="100%" src="assets/sdk-flow.svg" alt="Animated Leviathan SDK public interface flow">
+</p>
 
-<table width="100%">
-<tr>
-<td width="33%" valign="top"><strong>Client Layer</strong><br><sub>Typed API clients · request/response models · pagination · errors</sub></td>
-<td width="33%" valign="top"><strong>Integration Layer</strong><br><sub>Authentication helpers · webhooks · compatibility utilities · integration helpers</sub></td>
-<td width="33%" valign="top"><strong>Developer Experience</strong><br><sub>Examples · predictable versioning · safe defaults · documentation</sub></td>
-</tr>
-</table>
+The SDK is intended to make intentionally public Leviathan contracts easier to consume from applications, plugins, server tools and integration projects. It should provide typed clients, public models, error handling, pagination, webhook verification, compatibility helpers and safe defaults without exposing private platform internals.
 
 ## Status
 
@@ -43,19 +39,9 @@ Planned SDK work may include:
 
 Planned capabilities are not production promises and may change before implementation is published.
 
-## Intended usage model
+## External service boundaries
 
-```text
-Application / Plugin / Tool
-          ↓
-     Leviathan SDK
-          ↓
- Supported Public API / Webhook / Integration
-          ↓
-   Explicit Public Contract
-```
-
-The SDK should only expose interfaces intentionally supported for public use. Private platform internals and proprietary implementation details are outside its scope.
+Where a public SDK flow touches Microsoft, Xbox, Minecraft, Discord or another third-party platform, those systems remain external service boundaries. Leviathan SDK helpers should expose only the minimum documented public behavior required for supported integrations and must not attempt to hide or bypass third-party authentication, entitlement, permission or security requirements.
 
 ## Security boundaries
 
